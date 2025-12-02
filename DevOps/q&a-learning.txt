@@ -1,2 +1,4 @@
 agile is task based approach. so based on the task, dev, test is performed and iterations r performed for every function. here, the ppl who r working on specific iterations, once they develop, testing will be done only on this iteration. so no visibiltiy of other iterations. 
 because of this reason - in agile - manual approval from all stakeholders is required to deploy. this will be done by release managemnt team
+
+if a software has to be built? how to do it automatically using devops? continuous development - does this require same IDE to be installed in devops env?
