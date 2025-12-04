@@ -765,3 +765,29 @@ Day 3: 4th Dec. 2025
 				
 				
 			- Using IAC Tools like Terraform & Ansible 
+			
+			
+			VM -> 
+			
+			AWS Cloud Platform to work with the DevOps Tools 
+
+	
+	- Role of DevOps Resource :
+	
+	DevOps Tools :
+	
+		- Open-Source DevOps Tools :
+		
+			- git,github,jenkins,docker,kubernetes,terraform,ansible,prometheus,grafana 
+		
+		
+		- Managed Services :		Paid Services
+		
+			- AWS 		--> CodeCommit,CodeBuild,CodePipeline,CodeDeploy,CloudFormation,ECS,EKS,ECR,AWS CloudWatch
+			
+			- Azure 	--> Azure DevOps Services 
+			
+			- GCP 		--> GCP DevOps Services
+	
+	
+	- Lab Requirement:
