@@ -619,3 +619,149 @@ DevOps Fundamentals :
 		- Continuous Testing
 		- Continuous Delivery & Deployment
 		- Continuous Monitoring
+
+
+		
+######################
+Day 2: 2nd Dec. 2025
+######################
+
+
+		- Continuous Integration :::
+		
+			- It is the capability of any Application Development Team to Continuously Integrate the code changes for further testing.
+			
+			Automate:
+			
+				- Application Build 
+					==> Process of Compiling the Source Code, 
+						Create the Artifacts(Executable code - Binaries - *.war/*.jar/*.exec/*.dll) 
+				- Unit Test 
+				- Promote the Changes to Test Environments
+				- Notify the Testing Team thru Emails	
+
+			Tools :
+			
+				- IDE - Integrated Development Environment - Eclipse,Visual Studio, Pycharm, Visual Studio Code.
+				- Git,Github 
+				- Build Tools, JUnit Testing Tool 
+				- Docker, Kubernetes, Ansible
+				- Jenkins 
+				
+		
+		- Continuous Testing :::
+		
+			- It is the capability of any Testing Team to Automate the Application Testing.
+			- Using Test Cases, Test Scenarios, Test Data
+			
+			Tools :
+			
+				- TestNG, Selenium 
+				- Jenkins 
+		
+		
+		- Continuous Delivery & Deployment :::
+
+			- Both Continuous Delivery & Continuous Deployment and used to release the changes to Production Environment.
+			
+			- Continuous Delivery: 
+			
+				- It expect Manual Approval to release the changes to Production Environment.
+			
+		
+			- Continuous Deployment:
+				
+				- It Never expect any Manual Approval to release the changes to Production Environment.
+		
+		- Continuous Monitoring 
+		
+		
+		
+######################
+Day 3: 4th Dec. 2025
+######################
+
+	DevOps Cont.....
+	
+	
+		- Continuous Delivery & Deployment :::		
+
+			- Both Continuous Delivery & Continuous Deployment and used to release the changes to Production Environment.
+			
+			- Continuous Delivery: 
+			
+				-> This process expect manual intervension/approval for production releases 
+				-> During the process of application upgrade or downgrade, there might be application downtime
+				-> This is used for Monolith Application Architecture
+			
+				
+				Eg.: Insurance/Logistics/Stock-Markets/
+				
+					Banking Application :
+				
+					Online NetBanking/Credit Card Transactions
+					
+						- Open a Production Release Window - 4Hrs - 6Hrs 
+						
+							Fix the Issue, else revert.
+
+
+						
+			- Continuous Deployment:
+				
+				-> This process does not expect any manual approval/intervension for production releases
+				-> We can perform application upgrade or downgrade without any downtime 
+				-> Zero Downtime can be achieved using Micro-Service based Application Architecture
+				-> Considered as Matured Level of DevOps!
+				
+				
+				Eg.: Netflix/Facebook/Amazon.com
+				
+			
+			www.amazon.com :
+			
+			Sign-Up			--> Micro-Service1 -> Developer1 -> Independently Code,Test -> promote the Changes for further Testing - Release to Prod.
+			Sign-In 		--> Micro-Service2 -> Developer2 -> Independently Code,Test -> promote the Changes for further Testing - Release to Prod.
+			Search
+			Add to Cart 
+			Place the Order 
+			Make Payment 
+			Confirm Order 
+			Track 
+				
+				
+			Tools :
+			
+				- Jenkins 
+				- Docker & Kubernetes, Ansible
+
+						
+			- Continuous Monitoring :::
+			
+				- Used Monitor the End-to-End Infra-Structure to ensue High Availability of the Infra-Structure & Application
+				
+				- Threshold Limit: 
+				
+					- 75% CPU 
+					
+					- 80% RAM 
+					
+					- Set Alarm 
+					
+					
+				- Tools :
+				
+					- Prometheus & Grafana 
+					
+					- Jenkins
+			
+			
+	- Infra-Structure Management ::::
+	
+
+		- Provision/Create the Infra-Structure			==> Terraform
+		
+		- Configuration of Infra-Structure				==> Ansible
+				
+				
+			- Using IAC Tools like Terraform & Ansible 
