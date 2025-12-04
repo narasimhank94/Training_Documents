@@ -356,3 +356,266 @@ Next :
 		- Continuous Delivery & Deployment
 		- Continuous Monitoring
 		
+
+ 
+######################
+Day 1: 1st Dec. 2025
+######################
+
+DevOps Fundamentals :
+
+
+ Start with DevOps Modules :::
+ 
+ 
+ Class Recordings 		==> GDrive Links
+ 
+ Class Notes and & Reference Materials ==> GitHub Repo
+ 
+ Lab Requirements 		==> 
+ 
+ Course Content	
+ 
+ 
+ 8PM-10PM IST  --> Mon,Tue,Thu,Fri 
+ 
+ Mentoring Session --> Wednesday - 8PM-10PM IST
+ 
+ 
+ Introduction ::::
+ 
+ Scripting Languages :
+	
+		shell,groovy,python,yaml Scripts
+ 
+	
+ 
+ What is DevOps ?
+ 
+	- Is a Software Development Strategy.
+	- Used to promote the collaboration between the Development Team and Operations Team
+	
+	
+	Software Applications :
+	
+		Web Application/Mobile Application/Desktop Application/Embedded Application
+	
+	
+	
+	SDLC :
+		Software Development Life Cycle 
+		
+		- Requirement Analysis 
+		
+		- Design & Documentation 
+		
+		- Code & Develop
+		
+		- Test 
+		
+		- Implement to Production(LIVE)
+		
+		- Monitor/Maintain
+	
+		
+
+	- Waterfall Model 			Legacy Applications
+	
+		- Linear in fashion
+		- It strictly follows top-down approach
+		- It is meant only for Monolith Application Architecture
+		- Parallel Development is not possible
+		
+
+	Whole Application1:
+	
+		- Requirement Analysis 
+		
+		- Design & Documentation 
+		
+		- Code & Develop
+		
+		- Test 
+		
+		- Implement to Production(LIVE)
+		
+		- Monitor/Maintain
+
+
+		
+	- AGILE Methodologies ==> Task based approach!
+	
+		- To bring Agility to the SDLC Process 
+		- To perform Parallel Development
+		- Agile Methodologies using Iterations develop the product 
+		
+		- Iterations are the functions/Modules 
+		
+		- Each Iteration can be independently developed, tested and released to Production Environment with proper approvals
+		
+		
+	Iteration 1 - Work with Function1
+	
+		- Requirement Analysis 
+		
+		- Design & Documentation 
+		
+		- Code & Develop
+		
+		- Test 
+		
+		- Implement to Production with proper Manual approvals
+		
+		- Monitor/Maintain	
+		
+
+	Iteration 2 - Work with Function2
+	
+		- Requirement Analysis 
+		
+		- Design & Documentation 
+		
+		- Code & Develop
+		
+		- Test 
+		
+		- Implement to Production with proper Manual approvals
+		
+		- Monitor/Maintain
+		
+	'n' no. of Iterations 
+	
+		- Requirement Analysis 
+		
+		- Design & Documentation 
+		
+		- Code & Develop
+		
+		- Test 
+		
+		- Implement to Production with proper Manual approvals
+		
+		- Monitor/Maintain		
+		
+		Using AGILE Methodologies,
+
+		- We can achieve:
+		
+			- Continuous Development
+			
+			- Continuous Integration 
+			
+			- Continuous Testing 
+			
+			- Continuous Delivery 
+			
+				- It expect Manual Approval to release the changes to Production Environment.
+			
+			
+		- We cannot achieve: 
+		
+			- Continuous Deployment 
+				
+				- It Never expect any Manual Approval to release the changes to Production Environment.
+			
+						
+		
+	
+	- DevOps :::
+	
+		DevOps is Software Development Strategy, which promote Collaboration between the Teams like Development Team and Operations Team to achieve Continuous Development, Continuous Integration, Continuous Testing, Continuous Delivery, Continuous Deployment and Continuous Monitoring in more automated fashion.		
+ 
+ 
+	How to Implement DevOps ?
+	
+		- Identify the Teams involved in overall SDLC Process :
+		
+			- DevOps Team 
+				- Infra-Structure Management Team - Resource Provisioning & Configurations
+				- Application Development Team 
+				- Testing Team 						
+				- Release Management Team 
+				- Production Support Team 
+				- Production Monitoring Team 
+				- IT Security Team 
+				
+					
+		- Environments :
+		
+			Non-Prod Environments 											Production Environments			
+			
+				- Dev Environment
+				
+				- Test Environments 
+				
+					- QA Environment 
+						Quality Assurance
+					
+					- UAT Environment		======================>				Production Servers (LIVE Environment)
+						User Acceptance Testing 
+						
+						
+		- Application Architecture :
+		
+			- Monolith Application Architecture
+				- These are Tightly-Coupled Application Architecture
+				- All the dependencies and functions are tighly coupled.
+				- We cannot achieve Continuous Deployment. Only Continuous Delivery is possible.
+			
+			
+			- Micro-Service Based Application Architecture
+				- These are loosely Coupled Application Architecture
+				- Each and every function is considered as a Micro-Service
+				- Each Micro-Service will be independently Developed and Deployed to Production
+				- Using Micro-Service Application Architecture only we can achieve Continuous Deployment.
+			
+	
+	- DevOps Stages:
+
+		- Continuous Development :::
+		
+			- Is capability of any Application Development Team to Continuously Develop the Code.
+			- It is a process that improves the Developers' Productivity*****
+			
+				- Role of Developer :::
+					
+					- Understand the Design 
+					
+					- Create the Source Code --> Java Programs
+					
+					Manual Activities :
+					
+						- Application Build 
+							==> Process of Compiling the Source Code, 
+								Create the Artifacts(Executable code - Binaries - *.war/*.jar/*.exec/*.dll) 
+						- Unit Test 
+						- Promote the Changes to Test Environments
+						- Notify the Testing Team thru Emails
+				
+					Using DevOps Approach :
+					
+						Automate:
+						
+							- Application Build 
+								==> Process of Compiling the Source Code, 
+									Create the Artifacts(Executable code - Binaries - *.war/*.jar/*.exec/*.dll) 
+							- Unit Test 
+							- Promote the Changes to Test Environments
+							- Notify the Testing Team thru Emails
+
+						Developers; 
+						
+							- Create the Source Code
+							- Save/Commit the Source Code in the Source Code Repositories. 						
+
+				Tools :
+				
+					- IDE - Integrated Development Environment - Eclipse,Visual Studio, Pycharm, Visual Studio Code.
+					- Git,Github 
+		
+		
+		
+		- Continuous Integration
+		- Continuous Testing
+		- Continuous Delivery & Deployment
+		- Continuous Monitoring
