@@ -791,3 +791,609 @@ Day 3: 4th Dec. 2025
 	
 	
 	- Lab Requirement:
+	
+	Pre-requisites :
+
+		- Create GitHub Account 
+			https://github.com/
+		
+			- Active Email_ID		
+		
+		- AWS Cloud Platform:
+		
+			https://aws.amazon.com/console/
+			
+			- Create Free Tier Account - Valid for 12 Months
+				https://aws.amazon.com/resources/create-account/
+				
+				https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-creating.html
+			
+				- Active Email_ID
+				- Active Mobile_Number
+				- Active Credit/Debit Card(Enabled with International Transaction)
+				
+				- PAN Number
+		
+		- Create DockerHub Account: 
+			https://hub.docker.com/
+			
+			- Active Email_ID		
+
+		- Install Visual Studio Code IDE on Local Machine:
+			https://code.visualstudio.com/download
+
+
+	Roles & Responsibilities of DevOps Team :
+	
+	
+		-> Interact with all the Team, understand their pain-point and enable automate
+
+
+	- DevOps LifeCycle using Jenkins :::
+	
+		-> Identify the Source Code Changes 
+		-> Application Build 
+		-> Automate Unit Testing 
+		-> Package Application Images
+		-> Publish Application Images 
+		-> Deploy Application Images to Production Servers 
+
+
+	-> SDLC :
+	
+		Waterfall,AGILE,DevOps,DevSecOps,GitOps,SRE,MLOps,AIOps,LLMOps
+		
+		15-16 VMs
+
+		CI/Cd 		--> delivery
+		CI/CD 		--> Deployment
+		
+		
+
+Next: 
+
+	Fundamentals of Linux :::
+
+
+######################
+Day 4: 5th Dec. 2025
+######################
+		
+	Fundamentals of Linux Operating System :::
+		
+	Based on DevOps Perspective!
+
+		Overview of Linux
+		Linux Architecture
+		Linux Distributions
+		Basic Linux Commands
+		File Permission Management
+		User Creation
+		Shell Scripts
+		SSH and VI Utility			
+	
+	
+	Install Linux ???
+	
+		- AWS Cloud Platform :
+		
+			- Create EC2 Instances (VM) - Linux Distributions.
+			
+Pre-requisites:
+
+	1. Enable AWS Cloud Platform :
+	
+	2. Create AWS EC2 Instances based on Linux Ubuntu Distribution.
+	
+	3. Connect to EC2 Instance :
+	
+	4. Login to EC2 instance 
+	
+	
+	- Access AWS Services using AWS Console :::
+	
+	1. Create an AWS Account
+	
+	2. Login to AWS Console as a root user.(EMail_ID & Password)
+	
+	3. Explore the AWS Dashboard & Services 
+		
+	4. EC2 Service		==> Used to Create Computing Environment
+		
+		- Create EC2 Instance 
+		
+		- Login to EC2 Instance 
+		
+			- Tools :
+			
+				- EC2 Instance Connect Option using Web Browser 
+				
+				- SSH Agents 		--> For Local Windows Users 
+				
+					- Putty
+					
+					- MobaXterm 	--> Install MobaXterm on Local Windows Machine 
+										https://mobaxterm.mobatek.net/download-home-edition.html									
+				
+				- Terminal			--> For Linux / Mac Users
+			
+			
+			- Connection Parameters to Login to Remote Host Server:
+			
+				- Host_Name 		:	Public IP_Address of EC2 Instance
+				
+				- User_Name 		:	Default User Name - ubuntu			# For Ubuntu Distribution
+				
+				- User_Credentials	:	SSH Keys
+				
+				
+						- Authentication Modes :
+						
+							- Password Based Authentication
+							
+							- Token Based Authentication
+							
+							- Key Based Authentication
+							
+								- Public Key 
+								- Private Key 		--> *.pem (file)								
+							
+							- Passwordless Authentication
+						
+							
+		
+	- Login to AWS Console as a root user.(EMail_ID & Password)		
+
+
+		EC2 Instance Connectivity :::
+		
+			- Public IP Address 
+			
+			- Private IP Address 
+			
+			
+		Usage :::
+		
+		Free Usage from Billing Dashboard 
+	
+	
+	
+	Work with the Instances :::
+	
+	Linux :
+
+		Overview of Linux :::
+		
+		Operating System acts as an interface between the user applications & the underlying Hardware.
+		
+
+	Fundamentals of Linux Operating System 
+	
+		- Windows 
+		- Mac 
+		- Linux 
+		
+	Linux Operating System 
+		- Open-Source 
+		- Is Secured 
+		- Linux OS was created based on the Unix Operating System 
+		- Is an interface between the user applications and underlying Hardware.
+		- Linux OS is based on the Command User Interface
+		- Core of Linux OS is called kernel!
+			Components of Linux OS Architecture
+				- Networking 
+				- Storage 
+				- IPC - Inter Process Communication
+				- User Management 
+				- Security Management 
+				- Control Groups 
+				- Namespace 
+				- Process 
+		
+			
+		- As a DevOps Team we can Manage the Linux Machines
+		
+			- Package Management 
+			- File Management 
+			- User Management 
+			- Access Management 
+			- Remote Servers Management 
+			- Process Automation(Shell Scripting)		
+		
+		
+			
+		
+######################
+Day 5: 8th Dec. 2025
+######################	
+
+
+- Linux	: Package Management
+	
+	
+	- Package Manager : Based on the Linux Distributions 
+
+	Working with Linux ::
+
+
+		1. Create EC2 Instances (Virtual Machine)
+				- Based on Linux OS Distribution
+				
+				- Login to AWS Console 
+				- Go to EC2 Instance Dashboard 
+				- Launch EC2 Instances.
+				
+					- Parameters to Launch AWS EC2 Instances :
+						- Name/Tag
+						- Choose Ubuntu v22.04 AMI 
+						- t2.micro Instance Type 
+						- Key-Pair 
+						- No. Of Resource  = 1
+						
+		2. Connect to EC2 Instances (Virtual Machine)
+		
+			Perform SSH(Secure SHell) Connection to EC2 Instance :
+			
+				=> Host_Name 										# Public_IP_Address of EC2 Instance
+				=> User_Name 										# ubuntu for Ubuntu Machine
+				=> User Credentials	(Authentication Type)
+						- Password based Authentication
+						- Token Based Authentication
+						- Key Based Authentication
+							- SSH Keys: Private Keys & Public Keys
+						- Passwordless Authentication
+		
+			- EC2 instance Connect Option thru Web Browser
+			
+			- SSH Agents (In Windows Machine) 
+				- Putty/MobaXterm				Windows Users Install this in Local Machine
+					==> https://mobaxterm.mobatek.net/download-home-edition.html
+		
+			- Terminal ::
+				- Command Prompt / Mac Terminal
+				Eg.: 
+						Open Command Prompt / Mac Terminal
+
+						Locate your private key file. The key used to launch this instance is aws2025-keypair1.pem
+
+						Run this command, if necessary, to ensure your key is not publicly viewable.
+						chmod 400 "aws2025-keypair1.pem"
+
+						Connect to your instance using its Public DNS:
+						ec2-65-0-183-132.ap-south-1.compute.amazonaws.com
+
+						Example:
+
+						ssh -i "aws2025-keypair1.pem" ubuntu@ec2-65-0-183-132.ap-south-1.compute.amazonaws.com		
+
+		
+		3. Login to EC2 Instances (Virtual Machine)
+				
+				
+				
+		- Basic Linux Commands 
+		
+			Package Manager - apt/yum/dnf ==> can be executed as a root user.
+			
+		- Linux Distributions 
+				
+			Packages can be managed based on the Distributions 
+					
+		- Package Management :::
+
+			- Package Managers are used to install/Uninstall/Upgrade the Packages/software 
+		
+				- Centos / RHEL 		===> 	yum package Manager 
+				- Debian / Ubuntu 		===>	apt/apt-get package Manager 
+				- Fedora				===>	dnf (Latest Version of Fedora)
+												yum (Previous Version of Fedora)
+												
+			- Package Managers can be executed only by the root user on Linux
+			
+				- To work with Package Manager :
+					- Elevate the Access to Root Level 
+						- sudo -i			# This Command is used to elevate the access to root level
+		
+		
+		
+			- To Install any tool/package :
+			
+				Install Pre-requisites	
+				Install Actual Tool
+				Post Installation Actions				
+		
+					Eg.: Tomcat :::: 
+					
+						Install Pre-requisites			===> jdk 
+						
+						Install Actual Tool				===> Install Tomcat 
+						
+						Post Installation Actions		===> Started Tomcat 
+		
+		
+			- Package :
+			
+					- Standalone Application Package
+					
+					- Service Package 
+		
+		
+			How to Install/Manage Packages ? :::
+			
+			- Elevate the Access to Root Level
+				sudo -i 					# This Command is used to elevate the access to root level
+				
+			- apt update 					# Used update the default packages
+			
+			- apt install openjdk-17-jre -y	# Install Java Package 
+			
+			
+			- Web Application Servers! (Tomcat(8080)/Nginx/Httpd) - enabled with Host Port.
+				
+				- Update the Security Group - used to manage the inbound and outbound traffic
+			
+			
+			- apt install nginx -y			# port 80 
+			
+			- nginx -version				# http://13.201.22.0/
+			
+			- Linux Application Service(nginx/Jenkins) 		
+			
+				- Start / Stop / Enable / Status / restart 
+				
+				systemctl status nginx 
+				
+				systemctl start nginx
+				
+				systemctl stop nginx
+				
+				systemctl enable nginx		# Used to define the service as as start up service
+		
+				systemctl disable nginx		# Used to remove the service from the start-up task list
+				
+				systemctl restart nginx 
+				
+			- apt install git				# Install git 
+			
+			- apt remove git 				# Uninstall git 
+			
+			- apt upgrade git 				# Used to upgrade git
+		
+		
+			Package :
+			
+				- Stand-alone Tool			Eg.: git
+				- Service					Eg.: tomcat/nginx/jenkins/docker 
+		
+			which nginx						# Used to get the path of installation ?
+			
+			which git 
+			
+			git --version
+
+			systemctl list-units --type=service --state=running
+			
+			apt list --installed
+
+
+- Linux	: File Management :::
+
+			Navigate to Directories/Folders :::
+
+				- pwd				# Get the Present Working Directory
+
+				- cd				# Change Directory
+				
+				- cd <dir_name> 	# Change to a specific directory				
+				
+				- cd /				# This command will take to the System root directory			
+			
+				- cd ~				# This command will take to the home directory(Default Directory) of the specific linux user
+									Eg.: 	ubuntu 	===> /home/ubuntu 
+		
+											root	===> /root
+									
+				- cd .. 			# Back to previous directory
+	
+				- ls 				# Is to List the files and Directories 
+				
+				- ll				# Long List 
+	
+		Create files/Directories :
+		
+		File Operations :
+		
+			- Open / Read / Delete / Update / Rename / Copy 
+			
+			
+		File Operations :
+		
+			- echo "Message" 				# output statement - To print msg to terminal 
+			
+			- echo "Record1" > file1.txt 	# Create/update a file with record
+		
+			- echo "Record1" >> file1.txt 	# Add New Record to a file	
+			
+			- touch <file_name>				# To Create Empty file
+			
+			- cat <file_name>				# To read the file contents 
+			
+			- File Editors :
+			
+				- vi editor					# To Create/Open a file in interactive mode				
+				
+				Eg.: 
+				
+					vi <file_name>			# To Create/Open a file in interactive mode
+					
+					
+					vi sample.txt
+					
+					press :
+					
+						i 					# go to insert mode 	
+
+						# Enter the file contents
+						# Enter the file contents
+						# Enter the file contents
+						# Enter the file contents
+					
+						esc :wq				# Save and exit from file 
+						
+						esc :q!				# exit from file without saving the changes 
+						
+						
+			- Rename a file/directory
+
+
+						mv <existing_file_name> <New_file_Name>
+						
+						Eg.: 
+						
+						mv sample1.txt dummyfile1.txt
+						
+			- Delete/Remove files :
+			
+						rm <file_name>
+						
+						rm <file1_name> <file2_name>
+						
+						rm *.txt 
+												
+		Create Directories :
+		
+			mkdir <New_Dir_Name> 				# Make Directory 
+			
+
+		ls 				# Get the list of files & Dirs 
+		
+		ls - a			# Get the list of all files & dirs(including hidden files and dirs)
+
+		ll				# Long Listing 
+
+
+	root@ip-172-31-38-191:~/dir1# ll
+	total 48
+	drwxr-xr-x 7 root root 4096 Aug 24 05:44 ./
+	drwx------ 7 root root 4096 Aug 24 05:33 ../
+	-rw-r--r-- 1 root root    7 Aug 24 05:44 .m1.txt
+	drwxr-xr-x 2 root root 4096 Aug 24 05:44 .sampledir/
+	-rw-r--r-- 1 root root    3 Aug 24 05:34 f1.txt
+	
+	-rw-r--r-- 1 root root    3 Aug 24 05:34 f2.txt
+	
+	drwxr-xr-x 2 root root 4096 Aug 24 05:38 f3.txt/
+	drwxr-xr-x 2 root root 4096 Aug 24 05:38 s1.txt/
+	drwxr-xr-x 2 root root 4096 Aug 24 05:38 s3java/
+	
+	drwxr-xr-x 2 root root 4096 Aug 24 05:33 sdir1/
+
+    1  clear
+    2  ls
+    3  clear
+    4  sudo -i
+    5  clear
+    6  sudo -i
+    7  clear
+    8  sudo -i
+    9  clear
+   10  apt update -y
+   11  sudo -i
+   12  sudo -i
+   13  pwd
+   14  sudo -i
+   15  pwd
+   16  ls
+   17  touch file1.txt
+   18  ls
+   19  touch .file.txt
+   20  ls
+   21  ll
+   22  clear
+   23  ls
+   24  cat file1.txt
+   25  echo "Hello"
+   26  echo "Record1" >> tempfile1.txt
+   27  ls
+   28  cat tempfile1.txt
+   29  echo "Record2" >> tempfile1.txt
+   30  ls
+   31  cat tempfile1.txt
+   32  echo "Dummy-Record" > tempfile1.txt
+   33  cat tempfile1.txt
+   34  ls
+   35  vi samplefile1.txt
+   36  cat samplefile1.txt
+   37  vi s1.txt
+   38  cat s1.txt
+   39  vi s1.txt
+   40  cat s1.txt
+   41  ls -a
+   42  clear
+   43  cat .file.txt
+   44  vi .file.txt
+   45  ls
+   46  cat .file.txt
+   47  ls -a
+   48  cd .ssh/
+   49  ls
+   50  cd ..
+   51  clear
+   52  pwd
+   53  ls
+   54  mv s1.txt samplefile2.txt
+   55  ls
+   56  rm file1.txt
+   57  ls
+   58  touch s1.java
+   59  touch s2.java
+   60  touch d1.md
+   61  clear
+   62  ls
+   63  rm samplefile1.txt  samplefile2.txt
+   64  ls
+   65  rm *.java
+   66  ls
+   67  mkdir dir1
+   68  ls
+   69  cd dir1/
+   70  pwd
+   71  mdkir sdir1
+   72  mkdir sdir1
+   73  ls
+   74  clea
+   75  clear
+   76  ls
+   77  cd ..
+   78  ls
+   79  cd dir1/
+   80  ls
+   81  touch w1.txt
+   82  touch w2.txt
+   83  touch w3.txt
+   84  ls
+   85  mkdir sdir2
+   86  clear
+   87  ls
+   88  ll
+   89  xlwE
+   90  clear
+   91  touch sdir3
+   92  touch sdir4r
+   93  mkdir file4.txt
+   94  mkdir f8.java
+   95  clear
+   96  ls
+   97  ll
+   98  cd /
+   99  ls
+  100  cd /etc
+  101  ls
+  102  clear
+  103  cd /
+  104  history
+
+
+Next: 
+
+	File Mgmt / User Mgmt / Access Mgmt
