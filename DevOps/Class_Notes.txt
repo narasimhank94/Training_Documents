@@ -1397,3 +1397,182 @@ Day 5: 8th Dec. 2025
 Next: 
 
 	File Mgmt / User Mgmt / Access Mgmt
+
+
+			
+#####################
+Day 5: 9th Dec. 2025
+#####################
+
+	Copy/Move the files from one dir to another :
+
+		cp <source_file_name> <Target Directory>
+		
+		Eg.: 
+		
+			cp w3.txt /home/ubuntu/dir1/sdir1
+			
+			cp /home/ubuntu/dir3/w3.txt /home/ubuntu/dir1/sdir1
+			
+			cp /home/ubuntu/dir1/tempfile1.txt .					# "." denotes the current directory!
+		
+
+		mv <source_file_name> <Target Directory>		
+
+			Eg.: 
+			
+			mv w3.txt /home/ubuntu/dir1/sdir1		
+			
+		File Types :
+		
+			- Script 
+			- Program 
+			- Artifact 
+
+		Owner 
+		
+		Group Users 
+		
+		Public Users 
+		
+	    -rw-rw-r-- 1 ubuntu ubuntu    0 Dec  9 14:53 tempfile1.txt
+		
+		----------
+		
+		-									# Denote dir or file (Possible value:  d or - )
+												'd'  Denotes Directory
+												'-'  Denotes File 
+												
+												
+		 ---								# Denote the Owner Level Access 
+												Possible Values: r / w / x 
+												r - Read only Access 
+												w - Write Access 
+												x - Execute Access 
+		
+			---								# Denote the Group Level Access
+												Possible Values: r / w / x 
+												r - Read only Access 
+												w - Write Access 
+												x - Execute Access
+
+			   ---							# Denote the Public User Level Access
+												Possible Values: r / w / x 
+												r - Read only Access 
+												w - Write Access 
+												x - Execute Access			
+	
+	
+		https://chmod-calculator.com/
+	
+		chmod <Access_Level> <File/Directory_Name>
+		
+		chmod 600 s1.txt
+
+		chmod 600 dir1
+		
+		As a best practise chmod 777 should not be used at any cause!
+			
+		
+			
+	- User & Access Management :::::
+	
+	
+		Create Linux User :
+
+		SSH Connection :	Secure SHell Connection 
+		
+			-> Host Name 
+			-> User Name 
+			-> User Authentication 
+
+
+			-> Authentication Types :
+			
+				- Password Based Authentication
+				
+				- Key Based Authentication
+					- Public Key 
+					- Private Key 
+					- authorized keys
+
+
+
+
+		How to Create Linux User ?
+		
+			Username : devopsadmin 
+			
+			Bash Terminal Access :
+			
+			Home Dir :
+			
+			password :
+			
+			ssh-keys :
+
+
+
+		Create Linux User with SSH Keys :::
+		
+			sudo -i 
+			
+			useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+
+			su - devopsadmin
+
+			ssh-keygen -t ecdsa -b 521					#ubuntu 22.04 or higher version of ubuntu				
+
+			cd .ssh
+			
+			ls ~/.ssh 
+
+			#You should see following two files:
+
+			#id_ecdsa - private key
+			#id_ecdsa.pub - public
+			
+			
+			cat id_ecdsa.pub > authorized_keys			# authorized_keys this file name should be same.
+			
+			authorized_keys :::
+				It is the copy of Public Key.
+				
+				Always the private key will be compared with the authorized_keys
+				
+			chmod 600 /home/devopsadmin/.ssh/*					# Used to Change the Access Mode of Files or Directories
+
+
+		Create Password to any Linux User:
+		
+			As a root user ::
+			
+				passwd <user_name>
+				
+				passwd devopsadmin
+
+
+		Get the List of Linux Users ::::
+			cat /etc/passwd
+		
+		Get the list of Linux User Groups :::: 
+			cat /etc/group
+
+
+	
+		Add user to a Group :
+		
+			usermod -aG <Existing_Group_Name> <Existing_User_Name>
+			
+			usermod -aG docker devopsadmin
+
+
+		Change the Ownership of any dir/file :::		
+			
+			chown -R devopsadmin /opt/tomcat/		# Used to Change the Ownership of Files or Directories
+			
+
+Next :::
+			
+	- Remote Servers Management 
+	- Process Automation(Shell Scripting)
