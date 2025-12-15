@@ -1,0 +1,28 @@
+1. if connecting to SSH client takes time and bcoz of that connection gets terminated: ERROR - Network Error: Software caused connection abort
+--> in MobaXterm.ini file, add below
+[MottyOptions]
+PingInterval=0
+PingIntervalSecs=300
+--> second option is to increase the keepalive option in Connections tab in Putty to 300 and select the second option and save the session
+
+-->third option is to change reg key value from 5 to 10
+in command prompt:
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v TcpMaxDataRetransmissions /t REG_DWORD /d 16 /f
+then verify the value with
+reg query "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v TcpMaxDataRetransmissions
+
+--> fourth option is to set the auto-tuning value to disable and prevent heuristics from changing it
+in command prompt:
+netsh int tcp set global autotuninglevel=disabled
+netsh int tcp set heuristics disabled
+then verify the value with
+netsh int tcp show global
+
+the above options extend the connection time and retries multiple times before giving up on a SSH server
+
+2. ERROR - Connection timeout (in MobaXterm)
+
+When the error changed from 1 to 2. this is because
+--> allow ssh.exe, mobaxterm.exe paths to windows firewall
+--> add a new outgoing rule in firewall -> TCP port 22 allow
+Remote side unexpectedly closed network connection

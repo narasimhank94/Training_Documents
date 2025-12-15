@@ -1,0 +1,22 @@
+how to do password based, password less, token based authentication while creating an instance. SSH BASED INSTANCE CAN BE CREATED USING PRIVATE AND PUBLIC KEYS
+if we give apt install - from where the package gets installed, how does it know?
+
+how to remove a user
+wat password do i have to give for a ubuntu user since it does not have a password but has only a keypair. can i delete the .ssh folder, create a password using root user, copy the .pub to authorised_keys. and then login to ubuntu user with tht password. wil that work?
+user s created and ssh gen, passwd is set. wat s the use? this s used only when connected via ssh? passwd s used to connect switching from public user to required user. 
+when two instances r to be connected, y it is getting connected when connected via private IP of the other instance and not with the public IP of the other instance. When the connected, if a file is transferred from source to target, the file has ownership of target inside target VM and source ownership inside source VM
+
+
+NEED TO CHECK:
+try logging to fedora, redhat, centos instances
+need to check what is inside /usr/sbin/nginx. looks like when a package/service is installed it will get installed here
+check the contents of "nginx/noble-updates,noble-security,now 1.24.0-2ubuntu7.5 amd64 [installed]"
+if a user s created with ssh gen and passwd. while connecting via ssh, will it ask for passwd as second level authentication?
+
+
+ANSWERS:
+get clarity on owner, group user, public user - 
+	ubuntu, root, usera, userb are created. each has separate home/<usr> folder. 
+	by default, only the owner has all access, group user has only execution access, public user will not have access to even read/view the folder
+	so in this case, if a folder is created under home/usera. here only usera can create a folder since he is the owner. userb and ubuntu will not be able to view the folder also. root can do everything
+	in the same case, if userb is added to usera group, then the folder created under home/usera can be viewed and used for execution by userb. usera can do anything since he is the owner. in this case also, ubuntu cannot view the folder since he is public user

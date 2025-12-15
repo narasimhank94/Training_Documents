@@ -1,0 +1,117 @@
+#to elevate superuser access
+sudo -i 
+
+#to install packages
+apt install nginx #if ubuntu/debian
+#need to use def if fedora, need to use yum if RHEL/Centos
+
+#to remove a package
+apt remove git
+
+#to update all installed packages
+apt update
+
+#to see the version of a packages
+nginx -version
+java --version 
+git --version
+#here, --version, -version depends on the packages
+
+#to start, stop, enable, disable a service (options are applicable only for service and not for package)
+systemctl status nginx
+systemctl start nginx
+systemctl stop nginx
+systemctl enable nginx
+systemctl disable nginx
+systemctl restart nginx
+
+#to get the path of the package/service where it has been installed
+which nginx
+which git
+
+#to get the list of all installed packages
+apt list --installed
+
+#to get the list of all services that are running
+systemctl list-units --type=service --state=running
+
+#to get present working directory
+pwd
+
+#to change directory
+cd
+
+#to go back one or multiple steps
+cd ..
+cd ../../../
+
+#to go to system root directory
+cd /
+
+#to go to home directory of the user
+cd ~
+#will go to /home/ubuntu if user is ubuntu
+#will go to /root if user is root
+
+#to list files with permissions, ownership and details
+ll
+ls -a
+
+#to print a statement
+echo "HELLO"
+
+#to create a file
+touch file1.txt
+
+#to see the contents of a file
+cat file1.txt
+
+#to edit a file
+vi file1.txt
+
+#to rename a file
+mv file1.txt file2.txt #(renames file1.txt to file2.txt)
+
+#move files from one dir to another
+mv <source_file> <target_directory>
+if arguments are two files/ two directories, then renaming wil happen. if arguments are a file and a directory, then moving happens
+
+#to remove file
+rm file1.txt
+rm *.txt
+rm file1.txt file2.txt
+
+#to create a directory
+mkdir dir1
+
+#to clear the console window
+clear
+
+#copy files from one dir to another
+cp <source_file> <target_directory>
+
+
+#to change permissions of a file/directory
+chmod 600 <filename>
+
+#to add a user
+useradd <user_name> -s /bin/bash -m -d /home/<user_name>
+
+#to change control to created user
+su - <user_name>
+
+#to generate ssh key for a user
+ssh-keygen -t ecdsa -b 521
+once ssh key is generated, .ssh folder will be created under the /home/<user_name>. inside this folder, we can see id_ecdsa and id_ecdsa.pub files. These are private and public key files
+
+#to connect to a system via ssh from a VM
+ssh <user>@<private_IP>
+Public IP cannot be used!!!!!!!!!!!!
+
+#copy files from one VM to another
+scp /home/devopsadmin/sourcefile.txt adminuser@172.31.0.239:/home/adminuser
+
+scp <file path from first VM> <userofsecondvm>@<privateIPofsecondvm>:<pathofthesecondvmuser>
+
+
+
