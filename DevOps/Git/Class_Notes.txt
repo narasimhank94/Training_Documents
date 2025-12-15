@@ -163,3 +163,55 @@ Types of VCS ::::
 		
 	
 	Working with Git Repo :
+	
+		Install git client :::
+		
+		Git Cli Commands 
+		
+		Git Misc Commands - revert/reset
+		
+		git branching 
+		
+		git branching strategies 
+		
+		github repository
+		
+		
+	- Install Git Client ::::		
+
+			https://git-scm.com/install/
+			https://git-scm.com/install/windows
+			
+				- git Bash 		==> Linux based cli commands 		--> ******* Default
+				
+				- git CMD 		==> Powershell cli commands 
+				
+				- git GUI 
+			
+			Open Git Bash / Terminal :
+			
+				git --version 
+				
+		
+		Create a Project Directory :::
+		
+			- cd d: 
+			
+			- mkdir PL-DevOp-A1125
+			
+			- cd PL-DevOp-A1125
+			
+			- mkdir repo1 
+
+			- cd repo1
+			
+				- git init 
+				
+				
+Next :::
+
+	work with Local repository :
+		git init 
+		
+		git cli command 
+							
