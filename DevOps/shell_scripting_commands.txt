@@ -1,3 +1,0 @@
-#inform the OS about which interpreter to use
-#!/bin/bash
-
