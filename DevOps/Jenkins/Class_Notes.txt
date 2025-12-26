@@ -1,0 +1,55 @@
+#######################
+Day 14: 23rd Dec. 2025
+#######################
+
+Build Orchestration using Jenkins ::::
+
+	https://github.com/PL-DevOps-GenAI-A1125/java-webapp-project
+	
+	Introduction to Jenkins ::::
+	
+	What is Jenkins :::
+	
+		Jenkins is Open-Source Build Orchestration Tool.
+		Used to Automate the End-to-End Application Build and Deployments
+		Using Jenkins we can create CI/CD Pipelines 
+		
+	Jenkins Architecture ::
+	
+		Jenkins is based on Master-Slave Architecture :::
+		
+			Jenkins_Master (VM)				==> Install Jenkins - To Create Jenkins CI/CD Pipeline Jobs/Projects
+				
+				Jenkins_SlaveNode1 (VM)		==> Perform Application Builds - compile/create artifacts
+						
+	
+		At Enterprise level :::
+		
+			Java Applications 
+			.Net Applications
+			Python Applications 
+
+		Scenario1 :	Application Build and Release frequency is very less.
+		
+			Jenkins_Master (VM) 	==> Create Jenkins CI/CD Pipeline Projects & Execute the Build in same Jenkins_Master Node.
+			
+			
+		Scenario2 : Muliple Applications with high Build and Release frequencies.
+			
+			Jenkins_Master (VM)			==> To Create Jenkins CI/CD Pipeline Projects and schedule to the builds in the slave_nodes
+																	
+				Jenkins_SlaveNode1 (VM)	==> Perform Application Builds - Java Applications 
+				Jenkins_SlaveNode2 (VM)	==> Perform Application Builds - .Net Applications			
+				Jenkins_SlaveNode3 (VM)	==> Perform Application Builds - Python Applications 
+				Jenkins_SlaveNode4 (VM)	==> Perform Application Builds - Angular/NodeJS
+				Jenkins_SlaveNode5 (VM)	==> Perform Application Builds - Ruby 	
+
+
+
+	- Need to Set-up the Build Environment for Java Maven Applications :::
+	
+		1. Create a Linux Script to Set-up the Build Environment for Java Maven Applications
+		
+		2. Create Linux User with ssh keys to perform Application Builds 
+		
+		3. Perform regular clean-up of the workspace dir 
