@@ -53,3 +53,124 @@ Build Orchestration using Jenkins ::::
 		2. Create Linux User with ssh keys to perform Application Builds 
 		
 		3. Perform regular clean-up of the workspace dir 
+
+
+
+		
+		
+#######################
+Day 15: 26th Dec. 2025
+#######################		
+
+	Working with Jenkins :::
+	
+	- Jenkins Pipelines/Jobs/Projects Workflow :
+		
+				- Application Build 
+					==> Process of Compiling the Source Code, 
+						Create the Artifacts(Executable code - Binaries - *.war/*.jar/*.exec/*.dll) 
+				- Unit Test 
+				- Promote the Changes to Test Environments
+				- Notify the Testing Team thru Emails	
+				
+	CI/CD Workflow :::
+	
+		SCM_Checkout 
+		Application Build 
+		Unit Testing 
+		Create Artifacts 
+		Promote the Application to Test Environments
+		Notify 
+		Deploy to Prod 	
+		
+	
+	- Developers' Perspectives :
+	
+		- Developers are just the consumers of Jenkins using Jenkins Tools and Services.
+		- Developers use Jenkins to execute/cancel/view the output - workspace of the Jenkins projects/Pipelines/Jobs.
+		
+	- DevOps Perspectives:
+		
+		- DevOps Team is the owner of Jenkins.		
+		
+		- Roles & Responsibilities of DevOps Team/Resources :
+		
+		- Jenkins Administration :
+		
+			- Installation & Configuration of Jenkins 
+			- Jenkins Global System Configuration 
+			- Plugins Management 
+			- Tools Management 
+			- User Management
+			- Security Management 
+			- Credentials Management 
+			- Create the Jenkins Master & Slave Node Configurations 
+			- Create CICD Pipeline Projects to automate the Applications build  and deployments
+			- Onboard Applications to DevOps Practice
+			- Periodic Backup & Recovery
+			- Periodic Upgrade of Jenkins Services and Plugins 
+			- Trobleshoot any Jenkins related Issues
+			
+	
+	- Installation & Configuration of Jenkins :::
+	
+		Jenkins runs as a service
+		
+		Jenkins used the default port: 8080
+		
+		- Login to AWS Console 
+		
+		- Launch AWS EC2 Ubuntu Instance - 22.04v AMI	/ t2.micro 
+		
+		- Install Jenkins.
+		
+			- Jenkins Package run as a service using default port 8080
+				- It can be execute using Web-Browser	
+		
+		
+		- https://www.jenkins.io/doc/book/installing/
+		
+		- https://www.jenkins.io/doc/book/installing/linux/
+		
+		- Jenkins Installation --> 
+					
+		- To Install any tool/package :
+		
+			Install Pre-requisites	
+			Install Actual Tool
+			Post Installation Actions				
+				
+					Install Pre-requisites			===> jdk 
+					
+					Install Actual Tool				===> Install Jenkins  
+					
+					Post Installation Actions		===> Start Jenkins & Setup Jenkins Service.		
+			
+	
+	- Global System Configurations :
+		
+		==> Is used to Configure the default properties/External Services/Servers in Jenkins.
+		--> goto manage jenkins -> Choose System Config
+		
+	
+	- Plugins Management :
+		==> Manage Plugins - Enable/Disable/Install/Uninstall/Update 
+		--> goto manage jenkins -> Choose Plugins
+
+	
+	- Tools Management :
+		==> Manage the Dev/Build Tools for Jenkins 	
+
+
+Next ::::
+
+
+		- User Management
+		- Security Management 
+		- Credentials Management 
+		- Create the Jenkins Master & Slave Node Configurations 
+		- Create CICD Pipeline Projects to automate the Applications build  and deployments
+		- Onboard Applications to DevOps Practice
+		- Periodic Backup & Recovery
+		- Periodic Upgrade of Jenkins Services and Plugins 
+		- Trobleshoot any Jenkins related Issues
