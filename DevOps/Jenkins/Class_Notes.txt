@@ -174,3 +174,130 @@ Next ::::
 		- Periodic Backup & Recovery
 		- Periodic Upgrade of Jenkins Services and Plugins 
 		- Trobleshoot any Jenkins related Issues
+
+
+
+#######################
+Day 16: 29th Dec. 2025
+#######################	
+
+
+		- User Management
+			
+		- Security Management 
+		- Credentials Management 
+		- Create Jenkins CICD Pipeline Projects on Master Node - to automate the Applications build  and deployments
+		- Create the Jenkins Master & Slave Node Configurations 
+
+	- User Management : 
+		==> Enable User Authentication
+	
+	
+	- Security Management :	
+		==> Enable User Authorization
+	
+	
+	- Credential Management : 
+		==> It is the default Credential Manager for Jenkins to Manage the Credentials of External Servers/Users
+				
+		
+
+	Create Jenkins Projects/Jobs on Jenkins Master ::::
+
+		- Free Style Projects :::
+		
+			- It is based on manual configuration using Jenkins Console.
+			- Cannot reuse.
+			
+			
+		- Variables :::
+		
+			- Environment Variables :::
+				- Jenkins reserved key works, that gets updated for every job.
+			
+					"jenkins-${JOB_NAME}-${BUILD_NUMBER}"
+					
+					"${var1}"
+			
+			- User-Defined Variables :::
+			
+					envi = "QA"			# Possible runtime inputs QA/UAT/PROD
+					
+		
+		- Pipeline Projects :::
+			
+			- It is based on the groovy scripts.
+			- It is actually used to Onboard Applications to CICD Process.
+			- Reusable
+			
+			
+			- Jenkins Pipelines composed of various stages :
+				- Each stage has some set of task(build steps)
+				
+			- Scripted Pipelines 	: - typical groovy scripts. 
+			
+			- Declarative Pipelines :	
+					- It is simplified version of Scripted Pipelines 
+					- Script/Snippet Generator to Create/Generate the Scripts 
+					
+					
+
+pipeline {
+    agent any
+
+	environment{
+		envi = "qa"
+	}
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'	
+				echo "${envi}"
+            }
+        }
+        stage('Application_Build') {
+            steps {
+                echo 'Perform Maven Application Build'
+				
+            }
+        }
+        stage('Deploy to QA Server') {
+            steps {
+                echo 'Deploy Artifacts to QA Server'
+            }
+        }
+    }
+}
+
+			
+			
+	CI/CD Workflow :::
+	
+		SCM_Checkout 
+		Application Build 
+		Unit Testing 
+		Create Artifacts 
+		Promote the Application to Test Environments
+		Notify 
+		Deploy to Prod 	
+
+
+NExt ::
+	
+	- Create the Jenkins Master & Slave Node Configurations 
+	
+		Jenkins_Master	(VM)	--> git, jdk, jenkins
+		
+			- Jenkins_Slave_Node(VM - Build_Server)
+								--> git, jdk, maven
+		
+		Scenario2 : Muliple Applications with high Build and Release frequencies.
+			
+			Jenkins_Master (VM)			==> To Create Jenkins CI/CD Pipeline Projects and schedule to the builds in the slave_nodes
+																	
+				Jenkins_SlaveNode1 (VM)	==> Perform Application Builds - Java Applications 		
+		
+		
+		
+		
