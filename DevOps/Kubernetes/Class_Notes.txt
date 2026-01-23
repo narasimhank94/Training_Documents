@@ -510,3 +510,253 @@ Next ::
 		- Load Balancer 		
 		
 	- Implement CICD Pipeline using Kubernetes.
+
+
+
+######################
+Day 26: 16th Jan. 2026
+######################	
+		
+- Kubernetes Volumes 
+	
+	- Used to maintain the Persistant Data!
+
+	- HostPath Volume:
+	
+		- It same as like Docker Volume.
+		- It is applicable at the Pod Level. 
+		- HostPath Volumes are created on the Host Machine, where the pod get deployed at runtime.
+		- Pods can use this Hostpath Volume to maintain the Input and out Files.
+		
+	- Create HostPath Volume 	
+	
+	- Attach it to the Pods.
+	
+	
+	- Persistant Volume				# Is used to allocate the Persistant Volumes to the Pods from the external Storage Medium
+									# Used to reserve huge amount of data at the cluster level 
+									# It abstracts the Volume allocation process.
+	
+	- Persistant Volume Claim		# Developers create the Persistant Volume Claim (Request Form)
+									# Storage Administrators process the Claim and allocate the requested volume using Persistant Volume Pool.
+									# Persistant Volume Claim is attached to the Pods 
+	
+	
+		- Kubernetes_Master (VM)
+			- Kubernetes_WorkerNode1 (VM)
+			- Kubernetes_WorkerNode2 (VM)	
+			
+			
+	- Kubernetes Services 
+
+	- NodePort 				# To Expose the pods to internet
+							# It is applicable at the application service level
+							# It assigns the ports- 30000 to 32767
+							
+	- ClusterIP				# To enable the pod communication within the cluster
+	
+	- Load Balancer			# To access the application usind external Load Balancer services.
+							# Route the traffic to a pod instance 
+							# Listener Rules: ALB,NLB,GLB
+							# Load Balancer is created at the Application Level
+							
+							
+		- Using Load Balancer, how the request are routed? 
+		
+		Types of Routing:
+		
+			- Simple Routing 				# Meant for a Static web page using complete <URL>
+			
+			- Host Based Routing 			# Meant for a Dynamic web sites
+			
+			- Path Based Routing 			# Meant for a Dynamic web sites
+			
+			- Query Based Routing			# Meant for a Dynamic web sites
+			
+			
+			
+			
+			www.google.com 					# Web Application
+			
+			
+			gmail 				-> www.google.mail.com					# Host Based Routing 
+			
+			maps 				-> www.google.maps.com
+			
+			translate			-> www.google.translate.com 
+			
+			drive 				-> www.google.drive.com
+			
+			
+			
+			www.google.mail.com	
+			
+			
+			inbox 				- www.google.mail.com/inbox				# Path Based Routing 
+			
+			sent 				- www.google.mail.com/sent
+			
+			trash 				- www.google.mail.com/trash
+			
+			
+			
+			inbox 				- www.google.mail.com/inbox?email=Hello  #Query Based Routing
+
+		
+		
+	- Implement CICD Pipeline using Kubernetes.
+	
+		- Integrate Kubernetes & Jenkins 
+		
+		
+
+Existing Jenkins Pipeline :::
+
+Stages:
+
+	CI - Pipeline: 
+
+		1. SCM_Checkout
+		2. Application_Build								=> *.war
+		3. Application_Image_Build							=> appln_img:v1.0
+		4. Login to DockerHub 
+		5. Push the appbuild_img1:v1.0 to DockerHub 
+
+Enhance this using Kubernetes :
+	
+Enhanced CI/CD Pipeline :
+ 
+	1. SCM_Checkout
+	2. Application_Build								=> *.war
+	3. Application_Image_Build							=> appln_img:v1.0
+	4. Login to DockerHub 
+	5. Push the appbuild_img1:v1.0 to DockerHub 
+	6. Deploy to Kubernetes
+
+
+Implementation of CI Pipeline:
+
+	- Jenkins_Master 							==>		Install git,jdk,jenkins 	
+		- Jenkins_SlaveNode1(Build_Server)		==>		Install git,jdk,maven,docker
+		
+	- Kubernetes_Master (VM)
+		- Kubernetes_WorkerNode1 (VM)
+		- Kubernetes_WorkerNode2 (VM)
+
+	Pre-requisites :::
+	
+		- Goto Jenkins Credential Manager and Create the DockerHub Credentials to use in the Pipeline.
+		
+		- Used the Credentials as Environment Variables within the pipeline script.
+		
+		- As a root user run this command on Slave_Node: 
+			
+			usermod -aG docker devopsadmin
+		
+		- reboot slave_node
+		
+		
+		- Intergrate Kubernetes Master to Jenkins Master :::
+
+			Use SSH Connection between Jenkins and Kubernetes Master
+			
+				Create a user in Kubernetes Master 
+				Grant Access to Kubectl
+				
+				Use Publish Over SSH Plugins to connect Kubernetes		
+			
+		- Update Manifest file in Github Repository to create the Kubernetes Deployment and NodePort Service Objects
+
+	
+# kdeploy.yaml		
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loksai-eta-deploy
+  labels:
+    app: loksai-eta-deploy-lbl
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: loksai-eta-app
+  template:
+    metadata:
+      labels:
+        app: loksai-eta-app
+    spec:
+      containers:
+      - name: loksai-eta-container
+        image: loksaieta/plwebappimg:v1.0
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loksai-eta-np-service
+  labels:
+    app: loksai-eta-app
+spec:
+  selector:
+    app: loksai-eta-deploy-lbl
+
+  type: NodePort
+  ports:
+  - nodePort: 31028
+    port: 8080
+    targetPort: 8080
+
+
+		
+pipeline {
+
+    agent { label 'slave1' }
+
+	environment {	
+		DOCKERHUB_CREDENTIALS=credentials('dockerloginid')
+	}	
+	
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'	
+				git 'https://github.com/PL-DevOps-GenAI-A1125/java-webapp-project.git'
+				
+            }
+        }
+        stage('Application_Build') {
+            steps {
+                echo 'Perform Maven Application Build'
+				sh 'mvn clean package'				
+            }
+        }
+        stage('Application_Image_Build') {
+            steps {
+                echo 'Perform Docker Application Image Build'
+				sh "docker build -t loksaieta/plwebappimg:v1.0 ."			
+            }
+        }
+        stage('Login to DockerHub') {
+            steps {
+                echo 'Login to Container Registry'
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        }
+        stage('Publish Application_Image to DockerHub') {
+            steps {
+                echo 'Publish Application_Image to DockerHub'
+				sh "docker push loksaieta/plwebappimg:v1.0"	
+            }
+        }
+        stage('Deploy to Kubernetes') {
+            steps {
+				script 
+				{
+				sshPublisher(publishers: [sshPublisherDesc(configName: 'Kubernetes_Master', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'kubectl apply -f kubedeploy.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+				}
+			}
+        }
+    }
+}

@@ -1,0 +1,143 @@
+
+
+######################
+Day 27: 19th Jan. 2026
+######################	
+
+	IAC Tools :::
+	
+		- Configuration Management Tool 		-> Ansible
+		
+		- Infra-Structure Provisioning Tool 	-> Terraform
+
+	Ansible :
+	
+	
+		- Infra-Structure as Code(IAC) Tool :		
+		
+			- Configuration Management ::: 	==> Install/Uninstall/Update of any packages
+			
+				Servers :
+				
+					- Build Servers 
+					- Test Servers 			==> 
+					- Target Servers 
+					
+	- What is Ansible?
+	- Why we need Ansible?
+	- Ansible Architecture :
+	
+	- Ansible Architecture components
+	
+		- Ansible Controller 
+		- Ansible Nodes 
+		- Modules 
+		- Inventory File
+			- Contains the details of the target servers 
+				- Host Name 
+				- User_Name 
+				- Credentials details 
+			- Here, the target servers can be maintained as groups 
+				Dev_servers
+					- Dev_Server1,2,3,4,5,........,100
+				Test_servers
+					- Test_Server1,2,3,4,5
+				
+				
+		- Ansible.config file 
+		
+		- using SSH Ansible Controller connect to Ansible Nodes.
+			
+	
+	- Ansible Concepts :::
+	
+		- Ansible Adhoc Commands :::
+			- Used to execute single module at a time
+			- This cannot be reused.
+			
+				Eg.: Install Git :
+				
+					- apt install git 
+				
+		
+		- Ansible Playbooks :::
+		
+			- Used to execute series of modules on the target server 
+			- Playbooks are written using *.yaml scripts 
+			- Playbooks should be reuse
+		
+			- 	Eg.: Install Nginx :
+			
+					- apt install nginx 
+					- Start nginx 
+					
+			- 	Eg.: Install MySQL Database :
+			
+					- Install Pre-requisites
+					- Install MySQL_Server 
+					- Start MySQL_Server
+					- Create Database 
+					
+					
+	- Working with Ansible:
+	
+		- Setup Ansible Architecture
+		
+				Ansible_Controller (VM)
+					Ansible_Node1 (VM)
+					Ansible_Node3 (VM)
+
+
+	- Working with Ansible Adhoc Commands and Modules 
+
+		- Ansible Adhoc Commands :::
+			- Used to execute single module at a time
+			- This cannot be reused.
+			
+			
+		
+
+Next :::
+
+	- Working with Ansible Playbooks and Modules
+
+
+
+
+######################
+Day 28: 20th Jan. 2026
+######################	
+
+	- Working with Ansible Playbooks and Modules
+	
+	- Ansible Playbooks :::
+	
+		- Used to execute series of modules on the target server 
+		- Playbooks are written using *.yaml scripts 
+		- Playbooks should be reuse, shared with the team
+		
+		- As a best practice, use Visual Studio Code IDE with Yaml Extention.
+	
+		- 	Eg.: Install Nginx :
+		
+				- apt install nginx 
+				- Start nginx 
+				
+		- 	Eg.: Install MySQL Database :
+		
+				- Install Pre-requisites
+				- Install MySQL_Server 
+				- Start MySQL_Server
+				- Create Database 	
+	
+	
+	- Variables 
+	- Handlers
+	- Loop
+	- Roles 
+	- Ansible Galaxy
+https://galaxy.ansible.com/ui/
+
+Next :::
+	
+	- Terraform
