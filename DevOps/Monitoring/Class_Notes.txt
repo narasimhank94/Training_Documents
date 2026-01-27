@@ -1,0 +1,92 @@
+
+
+
+######################
+Day 30: 23rd Jan. 2026
+######################	
+
+	Monitoring Tools :::
+	
+		- Prometheus & Grafana 
+		
+	Monitoring Tools Architecture:
+	
+	Capabilities of Monitoring Tools:
+	
+	Setup the Prometheus and Grafana Monitor Server:
+		
+		
+	- Continuous Monitoring :::
+	
+		- Used Monitor the End-to-End Infra-Structure to ensue High Availability of the Infra-Structure & Application
+		
+		- Threshold Limit: 
+		
+			- 75% CPU 
+			
+			- 80% RAM 
+			
+			- Set Alarm 	
+	
+	- Monitoring Tools :::
+		
+			Infra-Structure Monitoring :
+			
+				-	Prometheus/Grafana/Splunk/Dynatrace/Nagios
+			
+			Application Monitoring :
+			
+				-	DataDog/AppDynamics 
+	
+			
+			AWS :	AWS CloudWatch 
+			
+		
+		
+		- Prometheus 	==> Infra-Structure Monitoring Tool 
+							Prometheus is considered as a Data Source to Grafana 
+							
+		- Grafana 		==> Visualization Tool 
+							Grafana uses the monitoring metrics from Prometheus and Prepare Monitoring Dashboards
+							
+							
+	-	Architecture of Monitoring Tools:	
+
+		- Based on Client Server Architecture
+		- Based on Agents 
+		
+		- Produc Monitoring Team ::::
+		
+	
+	- Setup the Prometheus and Grafana Monitor Server:		
+	
+		Time Series DataBase - used to maintain the monitoring metrics
+		
+		PromQL Expressions/Queries to query the data from Time Series Database
+		
+		
+	- Prepare Monitoring Dashboards ::::	
+	
+		- Integrate Prometheus & Grafana :::
+		
+		- Create Monitoring Dashboards ::::
+
+Next :::
+		
+	- Fundamentals of Python :::	
+	
+	- AWS Cloud Services :::
+	
+	
+	- DevOps Project :::
+	
+		- Problem Statement:
+		
+		- DevOps Solutions :
+	
+	
+DevOps Assessment Report:
+	- DevOps Implementation Documentations
+
+
+	AWS Cloud 

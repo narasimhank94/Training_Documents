@@ -1,0 +1,72 @@
+######################
+Day 31: 26th Jan. 2026
+######################	
+
+	Fundamentals of Python :::
+	
+		- Create Python Console Applications 
+		- Create Python Web Application
+		
+		
+	Scripts: 
+	
+	DevOps ==> MLOps => 
+	
+	Overview of Python
+	Features, Benefits, Uses of Python
+	Installation and Setup of Python Environment
+	Various Types of Sequences in Python
+	File Operations
+	Python Functions
+	OOPs Concepts
+	Modules
+	Errors and Exception Handling
+	Python Console based application and Web Application using Flask
+	
+	
+	Install Visual Studio Code :
+	
+	Install Python Extension for VS Code :
+	
+	Web Application Servers :::
+	
+		- django Framework
+		- Flask 
+		- Streamlit	==> meant for ML Model Web Application UserInterface 
+		- Fast-api 	==> Create ML Model Web API Server 
+	
+	Application Programning Languages :
+	
+		- Java 		- To develop Console based application and Web Application
+		- Python 	- To develop Console based application and Web Application
+		
+
+	Install Python on Local Machine 
+	
+		https://www.python.org/downloads/
+	
+	Install Visual Studio Code :::
+	
+	Install Python Extension for VS Code :::
+	
+	Create Project Folder 
+	
+		Create samplepgm.py 
+		
+			<Write Script>
+			
+	
+		Open Terminal 
+		
+			> python --version 
+			
+			> py ./samplepgm.py					# To Execute any Python Application
+	
+Next: 
+	
+	Python Program Practice!
+	
+	DevOps Project 
+	
+
+	AWS Cloud 
