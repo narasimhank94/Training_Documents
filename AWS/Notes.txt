@@ -59,3 +59,67 @@ Next ::
 
 	IAM Services
 		
+
+
+
+
+#######################
+Day 34: 30th Jan. 2026
+#######################	
+
+	AWS Intro :
+	
+		Access AWS Services :
+		
+			https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
+		
+		AWS:
+		
+		Root User 	==> Administrators Account ==> Should be used only for Account Management 
+		
+		IAM User 	==> AWS User ==> To Create and Manage the AWS Services 
+
+	Billing Management ::::
+	
+	
+	Billing & Cost Management Dashboard :::
+	
+		
+
+	IAM Services	:::: Global Service
+	
+		
+		
+		I A M  ==> Identity & Access Management Service.
+		
+		
+		
+		Authentication	- Define Who can Access?		
+		
+		Authorization	- Define what can be accessed?
+		
+		Role = Admin, Manager, Developer
+		
+		RBAC --
+		
+		
+		IAM User :: 
+			 - Create IAM User - Administrator Access
+			 - With valide password
+			 - Login to AWS Console as IAM User.
+			 - Create AWS Resources.
+			 
+		
+		IAM User Group
+		
+		IAM Policies
+		
+		IAM Roles 
+
+
+
+		
+	
+	Working with IAM Services :
+	
+		- Login to AWS Console as a root user.
