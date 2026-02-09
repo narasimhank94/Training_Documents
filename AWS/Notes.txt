@@ -1,1 +1,322 @@
-AWS Documents
+	
+#######################
+Day 33: 29th Jan. 2026
+#######################	
+
+
+	AWS Cloud Platform :::
+	
+	==> AWS Cloud Practioner/Associate :::
+	
+	
+	Fundamentals of Cloud Computing 
+	
+	AWS Cloud Computing Services 
+	
+	What is Cloud Computing ??
+	
+	Why we need Cloud Computing/Platform ??
+	
+	
+	Use Case: Develop and Host a Web Application :::
+	
+		Create LMS Web Portal		==> www.loksaieta.com 
+			
+			- Search for course 
+			- Read Course contents 
+			- Enrole for Course 
+			- Register for Course 
+				-> Payment 
+				-> SMS/EMail/Whatapps Notifications
+			- Join the Classes 
+			- Access the Class Materials 
+			- Access the Class Records 
+			
+			
+	I need Infra-Structure to Develop and Host this Web Application ::
+	
+	On-Premises Environments :
+	
+		- Dev 
+		- Build
+		- Test 
+		- Prod 
+		
+	Highly scalable/reliable/Secured IT Infra-Structure --> Computing Devices, Storage, Networking, Security
+	
+	Cloud Platform :
+	
+
+	AWS Infra-Structure ::::	https://aws.amazon.com/about-aws/global-infrastructure/
+		
+		- AWS Region 
+		
+Next ::
+
+	AWS Intro 
+
+	Billing Management 
+
+	IAM Services
+		
+
+
+
+
+#######################
+Day 34: 30th Jan. 2026
+#######################	
+
+	AWS Intro :
+	
+		Access AWS Services :
+		
+			https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
+		
+		AWS:
+		
+		Root User 	==> Administrators Account ==> Should be used only for Account Management 
+		
+		IAM User 	==> AWS User ==> To Create and Manage the AWS Services 
+
+	Billing Management ::::
+	
+	
+	Billing & Cost Management Dashboard :::
+	
+		
+
+	IAM Services	:::: Global Service
+	
+		
+		
+		I A M  ==> Identity & Access Management Service.
+		
+		
+		
+		Authentication	- Define Who can Access?		
+		
+		Authorization	- Define what can be accessed?
+		
+		Role = Admin, Manager, Developer
+		
+		RBAC --
+		
+		
+		IAM User :: 
+			 - Create IAM User - Administrator Access
+			 - With valide password
+			 - Login to AWS Console as IAM User.
+			 - Create AWS Resources.
+			 
+		
+		IAM User Group
+		
+		IAM Policies
+		
+		IAM Roles 
+
+
+
+		
+	
+	Working with IAM Services :
+	
+		- Login to AWS Console as a root user.
+
+
+
+		
+
+#######################
+Day 35: 2nd Feb. 2026
+#######################			
+		
+	EC2 Services ::::
+		
+		
+	- Launch EC2 Instances :::
+	
+	- using User Data Option
+	
+#!/bin/bash
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+echo "<h1>Hello, World!</h1>" > /var/www/html/index.html
+
+	- AMI ::: Amazon Machine Image :::
+	
+	
+	- Create AMI based on an EC2 Instance and Use that New AMI to launch EC2 Instance
+	
+	- Copy AMI and Launch.
+	
+	
+	
+Access to AWS Services ::::
+
+	- AWS Console 
+	
+	- AWS Cli/SDK :::
+	
+		- Login to AWS Console as an IAM User.
+		
+		- Create Access Key and Secret Key 
+
+Next ::::
+
+		
+		- Install and Perform AWS Configuration on Local Machine.
+		- Work with AWS Cli Commands 	
+	
+	- IAC Tools like Cloudformation / Terraform
+	
+	
+	
+#######################
+Day 36: 5th Feb. 2026
+#######################			
+		
+	EC2 Instance Storage :::
+
+		- EBS Volumes :::
+		
+		- EFS Volumes :::
+			
+		- S3 Services ::: --> Source Codes (GIT)
+		
+		
+		-> Volume : Used to store Files and Folders ::
+		
+			--> 
+			
+			
+		Storage Administration Team ::: 
+		
+			Use Case : EC2,Dbase,ServerLess,Hybrid,On-prem,Kubernetes 
+					 : Muliple-cloud Platform
+					 
+					 
+		- Volume level snapshot :::
+		
+			Jenkins -> Upgrade ?
+			
+				-> jdk / jenkins plugins / Jenkins service ==> Stored in EBS 
+				
+			- OS Upgrade -> 
+			
+			
+			https://uptime.is/
+			
+			https://aws.amazon.com/legal/service-level-agreements/
+			
+			https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html?icmpid=docs_amazons3_console
+			
+			
+{
+  "Version": "2012-10-17",
+  "Statement": [
+	{
+	  "Sid": "Statement1",
+	  "Effect": "Allow",
+	  "Principal": "*",
+	  "Action": [
+		"s3:GetObject"
+	  ],
+	  "Resource": "arn:aws:s3:::pl-0205-dummybkt1/*"
+	}
+  ]
+}			
+			
+			
+			
+			https://pl-0205-dummybkt1.s3.ap-south-1.amazonaws.com/index.html
+			
+			
+
+
+	
+#######################
+Day 37: 6th Feb. 2026
+#######################				
+		
+
+	Access AWS Services :::
+	
+	Use AWS Cli : Command line utility to access AWS Services.
+	
+	https://docs.aws.amazon.com/cli/v1/userguide/cli_code_examples.html
+	
+	
+	Infra-Structure Management Team to Provision/Configure the AWS Resources ?
+	
+	
+		- Shell Scripts: 
+		
+		- AWS Cli 
+		
+			To automate the Resource Provisioning & Configurations
+		
+	
+		- IAC Tools : --> Based on Declarative Scripts - key:value  like json/yaml 
+		
+			Cloudformation / Terraform
+			
+		- SDK - Software Development Kit - boto3 Library
+				
+				
+	Install and Configure AWS Cli on Local Machines 
+	
+		- Pre-requisites :
+		
+				- IAM Role to enable CLI/S3 access to EC2 Instance 
+				
+				- Create AWS Access Key & Secret Key ::
+				
+					- asdad
+					
+					- Qaszxczxcdas
+				
+				- AWS Region 
+				
+					- ap-south-1
+					
+				- apt install unzip
+					
+				
+		- Install AWS Cli :
+			
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install			
+		
+			
+root@ip-172-31-11-27:~# aws configure
+
+AWS Access Key ID [None]: A<>3
+AWS Secret Access Key [None]: Q<>s
+Default region name [None]: ap-south-1
+Default output format [None]:
+			
+			
+			
+https://docs.aws.amazon.com/cli/v1/userguide/cli_s3_code_examples.html
+
+Storage: 
+
+AWS Database Services :::
+
+	-> MYSQL Server/Oracle/DB2
+		
+		
+		
+Next ::::
+
+	AWS Networking :::
+	
+			
+			
+			
+			

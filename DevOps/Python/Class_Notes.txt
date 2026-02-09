@@ -70,3 +70,104 @@ Next:
 	
 
 	AWS Cloud 
+
+
+	
+######################
+Day 32: 27th Jan. 2026
+######################	
+	
+	Python Program Practice!	
+	Create Web Application using Python Flask Web Application Framework
+	
+	DevOps Project
+		- Project Repo.
+		
+import random
+x = random.randrange(000000,999999)
+print(x)
+
+clist = ['Canada','USA','Mexico','Australia']
+for c in clist:
+print(c)	
+
+
+	- Web Application :
+	
+		-> Web Application Framework :
+		
+			-> Flask 		==> Lightweight yet powerfull framework for web application using Python
+			-> Django 		==>	Create Web-Application using Python/.Net Framework
+			-> Streamlit	==> Create Web Application for API, AI-ML Model	- chat-bot
+	
+	- Flask Web Application Framework: 
+	
+		- Create a Project Folder.
+	
+Create Web Application using Flask Web Application Framework
+	
+##################################
+
+Folder Structure :
+
+	My-WebApp-Project
+		app.py
+		templates
+			sample.html
+			
+##################################
+		
+		Open New Terminal :			
+			
+			Install : 	Web Application Framework
+				pip install flask
+		
+			Create app.py 
+		
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+
+def sample():
+	return render_template("sample.html")
+
+if "__name__" == "__main__":
+	app.run(debug=True)	
+	
+	
+		Create "templates" folder at root level :::
+				Create Html files :: eg. sample.html 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>www.loksaieta.com</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="jumbotron" style="background-color:white">
+      <img src="https://octodex.github.com/images/spidertocat.png" alt="Spidertocat"
+           class="img-responsive center-block" style="width:250px"/>
+      <h2 class="text-center">Hello Team</h2>
+      <p class="text-center">Python Flask Web App Demo. </p>
+  </div>
+</body>
+</html>
+
+		set FLASK_APP=sample
+	
+		python -m flask run	
+		
+		Running on: http://127.0.0.1:5000			# 5000 is the default port for Flask Web App Framework.
+		
+		
+boto3 Python Library?	- used to access AWS Resources!
+
+Terraform 
+
+AWS Cli 
+
+AWS SDK
