@@ -409,4 +409,198 @@ Next :::
 	
 		5 --> 
 		
+	
+#######################
+Day 40: 12th Feb. 2026
+#######################			
+
+
+	Demo on VPC :
 		
+		- Create Architecture Diagram ::
+		
+		
+	
+		- Create VPC with Public Subnet & Private Subnet 
+		
+		- Deploy the Applications 
+		
+			- 3-Tier Applications
+			
+		- High Availability & Load Balancing 
+
+			- Auto-Scaling Group(ASG)
+			- Elastic Application Load Balancer 
+			
+			
+		- VPC : pl-0212-vpc						# 10.1.0.0/16
+		- IGW : pl-0212-vpc-igw
+		- subnet1 : pl-0212-vpc-public-sn		# 10.1.0.0/24
+		- subnet1- route-table : pl-0212-vpc-public-sn-rtb 
+		
+		- Create EC2 Instance using this VPC  pl-0212-vpc-WebServer	
+		
+		
+		- subnet2 : pl-0212-vpc-private-sn		# 10.1.1.0/24
+		- subnet2-route-table : pl-0212-vpc-private-sn-rtb 
+		
+		- Create EC2 Instance using this VPC  pl-0212-vpc-AppServer
+		
+
+Next :::
+		
+		- High Availability & Load Balancing 
+
+			- Auto-Scaling Group(ASG)
+			- Elastic Application Load Balancer 
+
+		- AWS Security 
+	
+#######################
+Day 41: 13th Feb. 2026
+#######################		
+
+
+	- High Availability & Load Balancing 
+
+		- Auto-Scaling Group(ASG)	==> Scalability ==> 
+		
+			Scaling :
+			
+				- Vertical Scaling 	=> 
+				- Horizonal Scaling => 
+		
+		- Elastic Application Load Balancer 	
+		
+	- AWS Security :
+	
+		- Secret Keys
+		- Key Vaults 
+		
+		
+#######################
+Day 42: 16th Feb. 2026
+#######################
+
+
+	- AWS Route 53 
+	
+	- AWS Serverless 
+	
+	- AWS SNS 
+	
+	- AWS SQS 
+
+
+Next Lambda ::
+
+	AWS Security ::
+	
+		- KMS 
+		
+		- AWS Key Vaults 
+		
+		- AWS Security Manager 
+	
+#######################
+Day 43: 17th Feb. 2026
+#######################
+
+
+	AWS Security ::
+	
+		- KMS 
+		
+		- AWS Key Vaults 
+		
+		- AWS Security Manager 
+		
+	
+		SQS --> Encryption and Decryption SSL/TLS Certificates
+		
+		SSH Key :
+		
+			Key Pair:
+		
+		ssh -i <path>/*.pem <username@x.x.x.x>
+		
+		
+	AWS Cloud formation :::
+	
+	
+		IAC Tools :::
+		
+			Terraform :::	AWS -> 
+							Azure -> 
+							
+							Github repo?
+							
+							
+		CloudFormation 			(vs)	Terraform 
+		
+		AWS Resource 						- Any Resource Types - AWS/Az/GCP/
+		
+		*.yaml/*.json						- HCL - Hashi-Corp Declarative Language (Based on json)
+		
+		Managed by AWS 						- Managed my Hashi Corp
+		
+		
+		
+
+Next :::
+
+	Demo : 
+		- Load Balancer 
+		- Auto Saling Group 
+		
+		- Design Architecture Diagram for Project.
+							
+							
+#######################
+Day 44: 19th Feb. 2026
+#######################
+
+
+	AWS Cloud Watch :::
+	
+		- Client Server Architecture :::
+		
+			- AWS Cloud Watch is a fully Managed Service :
+			
+				--> Used to Monitor AWS Infra-Structure
+				
+			- AWS Cloud Watch 
+			
+			- AWS Cloud Trail 
+			
+			- AWS Config
+			
+	- Open Source Kubernetes --> Cli Command
+
+		- helm ==> Package Manager for Kubernetes 
+		
+			- Using helm we can create dashboard and monitor Open-Source Kubernetes cluster
+			
+	- AI for DevOps  :
+	
+		- Monitor using AI :
+
+			- Monitor Kubernetes Cluster - Helm charts to config Monitoring services .
+			
+		
+			
+Next :::
+
+	Demo : 
+	
+		- Assignments :
+			- VPC, Web Server, DB Server 
+			- Load Balancer 
+			- Auto Scaling Group 
+			
+		- Design Architecture Diagram for Project.
+			
+			
+	
+	
+				
