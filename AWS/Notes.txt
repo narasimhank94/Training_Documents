@@ -994,3 +994,357 @@ o	Lambda triggers email
 o	Email from SNS
 ________________________________________	
 				
+
+
+#######################
+Day 47: 26th Feb. 2026
+#######################
+
+
+Working with AWS Project :
+
+	3 Tier Web Application User Profile Management :
+		
+		VPC,Subnet,SG,RT,RTA,IAM Roles(Lambda,EC2)
+		RDS - Mysql 
+		S3 
+		SQS -> Lambda -> SNS Notifications
+		
+		EC2 Instance -> Execute Web Application
+		
+		-> Create Web Server using Launch Template: 
+		
+		
+		Enhancement with ASG,Load-Balancer 
+		
+		
+
+1. IAM Roles
+
+	EC2: EC2-3Tier-CRUD-Role1
+	
+		AmazonRDSDataFullAccess
+
+		AmazonS3FullAccess
+
+		AmazonSNSFullAccess
+
+		AmazonSQSFullAccess
+
+		AmazonSSMManagedInstanceCore
+
+		CloudWatchAgentServerPolicy
+		
+
+	Lambda: Lambda-3Tier-CRUD-Role1
+	
+		AmazonSNSFullAccess
+
+		AmazonSQSFullAccess
+
+		AWSLambdaBasicExecutionRole
+
+		AWSLambdaSQSQueueExecutionRole
+
+
+2. Security Group	:
+	
+	EC2: 80,22(inbound) - Source: 0.0.0.0/0 / ALB-SG	# pl-proj1-webserver-sg1
+	
+	RDS: 3306(inbound) - Source: VPC:CIDR				# pl-rds-sg1
+	
+
+3. S3 Bucket	# 
+
+	Name: loksai-edu-mlproject1 
+	
+
+4. SQS			# 
+
+	Name: pl-proj1-db-events 
+	
+	url: https://sqs.ap-south-1.amazonaws.com/6asdfadaw2342a1/pl-proj1-db-events
+
+
+5. Create SNS Subscription :
+
+	Project1-topic
+	
+	arn:aws:sns:ap-south-1:6asdfadaw2342a1:Project1-topic
+
+
+6. Lambda :
+
+
+#### Lambda Code :::
+
+Name: Project1-Lambda-Svc1
+
+Python Code: 
+
+
+import json
+import boto3
+
+sns = boto3.client('sns')
+
+SNS_TOPIC_ARN = "arn:aws:sns:ap-south-1:6asdfadaw2342a1:Project1-topic" 
+
+def lambda_handler(event, context):
+    print("Received event:", event)
+
+    for record in event['Records']:
+        message = record['body']   # PLAIN TEXT
+
+        print("Processing message:", message)
+
+        response = sns.publish(
+            TopicArn=SNS_TOPIC_ARN,
+            Subject="LoksaiETA App Notification",
+            Message=f"Event received from application:\n\n{message}"
+        )
+
+        print("SNS Publish Response:", response)
+
+    return {
+        "statusCode": 200,
+        "body": "Messages processed successfully"
+    }
+	
+
+7. Create Database Subnet Group 
+
+	Name: pl-project1-db-sng1
+
+8. RDS Database Instance(Private Subnet) 
+
+	Name: pl-project1-rdb-instance
+	
+9. Create Launch Template for Web Server ::::
+
+	--> pl-project1-webservers-lt1
+
+#### User Data Script for Launch Template :::
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
+
+#!/bin/bash
+dnf update -y
+
+# Install system packages
+dnf install -y python3 pip mariadb105 unzip
+
+# Install Python libraries
+pip3 install flask pymysql boto3 werkzeug
+
+cat <<EOF > /home/ec2-user/app.py
+from flask import Flask, request, redirect, render_template_string
+import pymysql
+import boto3
+import os
+from werkzeug.utils import secure_filename
+
+app = Flask(__name__)
+
+# ---------------- CONFIG ----------------
+DB_HOST = "pl-project1-rdb-instance.c5werwr232ad32423423ts5.ap-south-1.rds.amazonaws.com"
+DB_USER = "admin"
+DB_PASS = "Dummy_123"
+DB_NAME = "project1db"
+
+S3_BUCKET = "loksaiproject1"
+SQS_URL = "https://sqs.ap-south-1.amazonaws.com/sdfsdwrw7551/pl-proj1-db-events"
+REGION = "ap-south-1"
+
+UPLOAD_FOLDER = "/tmp"
+# ---------------------------------------
+
+s3 = boto3.client("s3", region_name=REGION)
+sqs = boto3.client("sqs", region_name=REGION)
+
+def get_db():
+    return pymysql.connect(
+        host=DB_HOST,
+        user=DB_USER,
+        password=DB_PASS,
+        database=DB_NAME
+    )
+
+# ---------------- HOME PAGE ----------------
+HOME_HTML = """
+<h2>Batch Profile Management</h2>
+
+<h3>Add User</h3>
+<form method="POST" action="/add" enctype="multipart/form-data">
+Name: <input name="name" required>
+Email: <input name="email" required>
+File: <input type="file" name="file">
+<button>Add</button>
+</form>
+
+<h3>User List</h3>
+<table border=1>
+<tr>
+<th>ID</th><th>Name</th><th>Email</th><th>File</th><th>Action</th>
+</tr>
+{% for u in appusers %}
+<tr>
+<td>{{u[0]}}</td>
+<td>{{u[1]}}</td>
+<td>{{u[2]}}</td>
+<td>{{u[3]}}</td>
+<td>
+<a href="/edit/{{u[0]}}">Edit</a> |
+<a href="/delete/{{u[0]}}">Delete</a>
+</td>
+</tr>
+{% endfor %}
+</table>
+"""
+
+# ---------------- EDIT PAGE ----------------
+EDIT_HTML = """
+<h2>Edit User</h2>
+
+<form method="POST" action="/update/{{user[0]}}">
+Name: <input name="name" value="{{user[1]}}" required>
+Email: <input name="email" value="{{user[2]}}" required>
+<button>Update</button>
+</form>
+
+<br>
+<a href="/">Back</a>
+"""
+
+@app.route("/")
+def index():
+    db = get_db()
+    cur = db.cursor()
+    cur.execute("SELECT * FROM appusers")
+    appusers = cur.fetchall()
+    db.close()
+    return render_template_string(HOME_HTML, appusers=appusers)
+
+# ---------------- ADD ----------------
+@app.route("/add", methods=["POST"])
+def add():
+    name = request.form["name"]
+    email = request.form["email"]
+    file = request.files.get("file")
+    filename = ""
+
+    if file and file.filename:
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(UPLOAD_FOLDER, filename)
+        file.save(filepath)
+        s3.upload_file(filepath, S3_BUCKET, filename)
+
+    db = get_db()
+    cur = db.cursor()
+    cur.execute(
+        "INSERT INTO appusers (name, email, filename) VALUES (%s, %s, %s)",
+        (name, email, filename)
+    )
+    db.commit()
+    db.close()
+
+    # Send notification
+    sqs.send_message(
+        QueueUrl=SQS_URL,
+        MessageBody=f"New user added: {name}, {email}"
+    )
+
+    return redirect("/")
+
+# ---------------- EDIT ----------------
+@app.route("/edit/<int:id>")
+def edit(id):
+    db = get_db()
+    cur = db.cursor()
+    cur.execute("SELECT * FROM appusers WHERE id=%s", (id,))
+    user = cur.fetchone()
+    db.close()
+    return render_template_string(EDIT_HTML, user=user)
+
+# ---------------- UPDATE ----------------
+@app.route("/update/<int:id>", methods=["POST"])
+def update(id):
+    name = request.form["name"]
+    email = request.form["email"]
+
+    db = get_db()
+    cur = db.cursor()
+    cur.execute(
+        "UPDATE appusers SET name=%s, email=%s WHERE id=%s",
+        (name, email, id)
+    )
+    db.commit()
+    db.close()
+
+    return redirect("/")
+
+# ---------------- DELETE ----------------
+@app.route("/delete/<int:id>")
+def delete(id):
+    db = get_db()
+    cur = db.cursor()
+    cur.execute("DELETE FROM appusers WHERE id=%s", (id,))
+    db.commit()
+    db.close()
+    return redirect("/")
+
+# ---------------- TG Health ----------------
+@app.route("/")
+def health():
+    return "OK", 200
+	
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=80)
+EOF
+
+chown -R ec2-user:ec2-user /home/ec2-user/*
+
+cd /home/ec2-user
+sudo nohup python3 app.py > app.log 2>&1 &
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
+
+
+10 Launch a Web Server using Launch Template(Public Subnet)  ******
+
+	Name: PL-webappserver1
+
+
+11. Login to Web Server using SSH-Key
+
+	- Using SSH Conn
+
+12. Login to MySQL DB Server from Web Server
+
+	mysql -h pl-project1-rdb-instance.c5asderweww282ts5.ap-south-1.rds.amazonaws.com -P 3306 -u admin -p
+
+
+13. Create Database & Table :
+
+Create database and table
+CREATE DATABASE project1db;
+USE project1db;
+
+CREATE TABLE appusers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    filename VARCHAR(100)
+);
+
+SELECT * from appusers;
+
+Exit MySQL:
+exit
+
+
+14. Access the Web Server using External IP-Address
+		
+		
+		
